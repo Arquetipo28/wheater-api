@@ -17,9 +17,9 @@ module Api
       wheater_collection = Wheater.all
       ordered_wheater = order_by(wheater_collection, 'temp', temp_order)
       ordered_wheater = order_by(ordered_wheater, 'created_at', date_order)
-      render json: { message: 'successfully returned historical wheater', data: { wheater: wheater_collection } }
+      render json: { message: 'successfully returned historical wheater', data: { wheater: ordered_wheater } }
     rescue StandardError => e
-      render json: { message: e }
+      render json: { message: e, data: { wheater: [] } }
     end
 
     private
