@@ -57,6 +57,4 @@ test:
 #
 production:
   <<: *default
-  database: weather_api_production
-  username: weather_api
-  password: <%= ENV['WEATHER_API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
